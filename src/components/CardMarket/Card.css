@@ -1,0 +1,568 @@
+.premium-development-card {
+  --family: #d4af37;
+  position: relative;
+  width: 250px;
+  height: 330px;
+  flex: 0 0 250px;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid var(--family);
+  border-radius: 18px;
+  color: #fff;
+  background: #07101b;
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.48),
+    inset 0 0 0 5px #091420;
+  cursor: pointer;
+  isolation: isolate;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.premium-development-card:hover,
+.premium-development-card:focus-visible {
+  z-index: 20;
+  transform: translateY(-9px) scale(1.025);
+  box-shadow:
+    0 26px 42px rgba(0, 0, 0, 0.58),
+    0 0 22px color-mix(in srgb, var(--family) 45%, transparent);
+  outline: none;
+}
+
+.premium-family-white {
+  --family: #dcecff;
+}
+
+.premium-family-blue {
+  --family: #3f8cf4;
+}
+
+.premium-family-green {
+  --family: #27b957;
+}
+
+.premium-family-red {
+  --family: #df4249;
+}
+
+.premium-family-black {
+  --family: #8a5a32;
+}
+
+.premium-card-artwork {
+  position: absolute;
+  inset: 0;
+}
+
+.premium-card-artwork img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transform: scale(1.01);
+  transition: transform 0.35s ease;
+}
+
+.premium-development-card:hover .premium-card-artwork img {
+  transform: scale(1.06);
+}
+
+.premium-card-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2, 6, 12, 0.25),
+      transparent 20%,
+      transparent 80%,
+      rgba(2, 6, 12, 0.35)
+    ),
+    linear-gradient(
+      180deg,
+      rgba(3, 8, 15, 0.28),
+      transparent 36%,
+      transparent 52%,
+      rgba(2, 7, 13, 0.98) 88%
+    );
+}
+
+.premium-card-frame {
+  position: absolute;
+  inset: 5px;
+  z-index: 7;
+  border: 1px solid rgba(255, 238, 170, 0.58);
+  border-radius: 12px;
+  pointer-events: none;
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.68);
+}
+
+.premium-point-medallion {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 10;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #fff0a1;
+  border-radius: 50%;
+  color: #16120a;
+  background: radial-gradient(circle at 34% 27%, #fff5b3, #e0af20 58%, #7f5500);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.58);
+}
+
+.premium-point-medallion strong {
+  font:
+    900 1.3rem Georgia,
+    serif;
+}
+
+.premium-bonus-stone {
+  --stone: #d4af37;
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  z-index: 10;
+  width: 42px;
+  height: 42px;
+  clip-path: polygon(
+    50% 0,
+    86% 14%,
+    100% 51%,
+    72% 100%,
+    28% 100%,
+    0 51%,
+    14% 14%
+  );
+  background:
+    radial-gradient(
+      circle at 35% 28%,
+      rgba(255, 255, 255, 0.95),
+      transparent 17%
+    ),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.58), transparent 36%),
+    var(--stone);
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.7));
+}
+
+.premium-bonus-stone span {
+  position: absolute;
+  inset: 6px;
+  clip-path: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.gem-stone-white {
+  --stone: #dcecff;
+}
+
+.gem-stone-blue {
+  --stone: #2179e8;
+}
+
+.gem-stone-green {
+  --stone: #1aa34a;
+}
+
+.gem-stone-red {
+  --stone: #d5323e;
+}
+
+.gem-stone-black {
+  --stone: #6b4426;
+}
+
+.premium-tier-mark {
+  position: absolute;
+  left: 15px;
+  bottom: 129px;
+  z-index: 10;
+  color: rgba(255, 228, 143, 0.88);
+  font:
+    700 0.68rem Georgia,
+    serif;
+  letter-spacing: 2px;
+}
+
+.premium-card-nameplate {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 68px;
+  z-index: 10;
+  min-height: 55px;
+  display: grid;
+  place-content: center;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 225, 138, 0.58);
+  border-radius: 8px 8px 2px 2px;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    rgba(24, 37, 54, 0.74),
+    rgba(3, 9, 16, 0.96)
+  );
+  backdrop-filter: blur(3px);
+}
+
+.premium-card-nameplate strong {
+  color: #fff4c9;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.08;
+  text-shadow: 0 2px 3px #000;
+}
+
+.premium-card-costs {
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  bottom: 9px;
+  z-index: 11;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2px;
+  padding: 6px;
+  border-radius: 2px 2px 10px 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 29, 45, 0.95),
+    rgba(4, 10, 18, 0.99)
+  );
+}
+
+.premium-free-card {
+  color: #cad6e5;
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.premium-tier-3 {
+  border-width: 3px;
+}
+
+.premium-tier-2 .premium-card-frame {
+  border-width: 2px;
+}
+
+.royal-deck-stack {
+  position: relative;
+  width: 230px;
+  height: 318px;
+  flex: 0 0 230px;
+}
+
+.royal-deck-layer,
+.royal-deck-front {
+  position: absolute;
+  width: 214px;
+  height: 302px;
+  border: 2px solid #d4af37;
+  border-radius: 18px;
+}
+
+.royal-deck-layer.layer-three {
+  top: 12px;
+  left: 15px;
+  background: #16243b;
+}
+
+.royal-deck-layer.layer-two {
+  top: 6px;
+  left: 8px;
+  background: #203454;
+}
+
+.royal-deck-front {
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  color: #ffe78b;
+  background:
+    radial-gradient(
+      circle at 50% 38%,
+      rgba(255, 216, 107, 0.14),
+      transparent 28%
+    ),
+    linear-gradient(145deg, #27395a, #0b1524);
+  box-shadow:
+    0 15px 28px rgba(0, 0, 0, 0.48),
+    inset 0 0 0 6px #101b2c;
+}
+
+.royal-deck-front::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(255, 231, 139, 0.5);
+  border-radius: 12px;
+}
+
+.royal-deck-filigree {
+  font-size: 3.1rem;
+}
+
+.royal-deck-front strong {
+  margin-top: 8px;
+  font:
+    700 1rem Georgia,
+    serif;
+  text-transform: uppercase;
+}
+
+.royal-deck-front small {
+  margin-top: 5px;
+  color: #9eb0c7;
+}
+
+.royal-deck-tier-3 .royal-deck-front {
+  background:
+    radial-gradient(circle, rgba(160, 87, 221, 0.18), transparent 35%),
+    linear-gradient(145deg, #362451, #111526);
+}
+
+.royal-deck-tier-2 .royal-deck-front {
+  background:
+    radial-gradient(circle, rgba(79, 140, 232, 0.2), transparent 35%),
+    linear-gradient(145deg, #263f68, #101827);
+}
+
+.royal-deck-tier-1 .royal-deck-front {
+  background:
+    radial-gradient(circle, rgba(200, 139, 63, 0.2), transparent 35%),
+    linear-gradient(145deg, #51371e, #17130f);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premium-development-card,
+  .premium-card-artwork img {
+    transition: none;
+  }
+}
+
+@media (min-width: 1101px) {
+  .premium-development-card {
+    width: 190px;
+    height: 251px;
+    flex-basis: 190px;
+    border-radius: 14px;
+  }
+
+  .premium-point-medallion {
+    width: 34px;
+    height: 34px;
+    top: 9px;
+    left: 9px;
+  }
+
+  .premium-point-medallion strong {
+    font-size: 1.05rem;
+  }
+
+  .premium-bonus-stone {
+    width: 34px;
+    height: 34px;
+  }
+
+  .premium-tier-mark {
+    bottom: 98px;
+  }
+
+  .premium-card-nameplate {
+    bottom: 52px;
+    min-height: 42px;
+  }
+
+  .premium-card-nameplate strong {
+    font-size: 0.82rem;
+  }
+
+  .premium-card-costs {
+    height: 41px;
+    gap: 5px;
+  }
+
+  .royal-deck-stack {
+    width: 176px;
+    height: 243px;
+    flex-basis: 176px;
+  }
+
+  .royal-deck-layer,
+  .royal-deck-front {
+    width: 164px;
+    height: 231px;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 700px) {
+  .premium-development-card {
+    width: 160px;
+    flex-basis: 160px;
+    height: 211px;
+    border-radius: 13px;
+  }
+
+  .premium-point-medallion {
+    width: 30px;
+    height: 30px;
+    top: 8px;
+    left: 8px;
+  }
+
+  .premium-bonus-stone {
+    width: 30px;
+    height: 30px;
+  }
+
+  .premium-tier-mark {
+    bottom: 82px;
+  }
+
+  .premium-card-nameplate {
+    bottom: 44px;
+    min-height: 34px;
+  }
+
+  .premium-card-nameplate strong {
+    font-size: 0.72rem;
+  }
+
+  .premium-card-costs {
+    height: 34px;
+    gap: 3px;
+  }
+
+  .royal-deck-stack {
+    width: 148px;
+    flex-basis: 148px;
+    height: 204px;
+  }
+
+  .royal-deck-layer,
+  .royal-deck-front {
+    width: 138px;
+    height: 194px;
+  }
+}
+
+@media (max-width: 1180px) and (min-width: 701px) {
+  .modern-game-board .premium-development-card {
+    width: 180px;
+    height: 238px;
+    flex-basis: 180px;
+  }
+
+  .modern-game-board .royal-deck-stack {
+    width: 167px;
+    height: 230px;
+    flex-basis: 167px;
+  }
+
+  .modern-game-board .royal-deck-layer,
+  .modern-game-board .royal-deck-front {
+    width: 155px;
+    height: 218px;
+  }
+}
+
+@media (min-width: 1181px) {  
+  .modern-game-board .premium-development-card {  
+    width: min(100%, 190px);  
+    height: auto;  
+    aspect-ratio: 190 / 251;  
+    flex: none;  
+    justify-self: center;  
+    border-radius: 12px;  
+    max-width: none;  
+  }  
+  .modern-game-board .premium-point-medallion {  
+    width: 32px;  
+    height: 32px;  
+    top: 8px;  
+    left: 8px;  
+  }  
+  .modern-game-board .premium-bonus-stone {  
+    width: 36px;  
+    height: 36px;  
+    top: 7px;  
+    right: 7px;  
+  }  
+  .modern-game-board .premium-tier-mark {  
+    left: 9px;  
+    bottom: 36%;  
+    min-width: 32px;  
+    min-height: 18px;  
+    padding: 1px 5px;  
+    font-size: 0.58rem;  
+  }  
+  .modern-game-board .premium-card-nameplate {  
+    left: 8px;  
+    right: 8px;  
+    bottom: 21.5%;  
+    min-height: 34px;  
+    padding: 4px 7px;  
+  }  
+  .modern-game-board .premium-card-nameplate strong {  
+    font-size: 0.72rem;  
+    line-height: 1.05;  
+  }  
+  .modern-game-board .premium-card-costs {  
+    left: 7px;  
+    right: 7px;  
+    bottom: 7px;  
+    min-height: 44px;  
+    height: 18%;  
+    grid-template-columns: repeat(4, minmax(0, 1fr));  
+    gap: 4px;  
+    padding: 5px;  
+  }  
+  .modern-game-board .premium-card-costs .gem-cost {  
+    min-width: 0;  
+    width: 100%;  
+    height: 30px;  
+    display: grid;  
+    grid-template-columns: 20px minmax(0, 1fr);  
+    align-items: center;  
+    justify-content: center;  
+    gap: 2px;  
+    padding: 2px 3px;  
+    box-sizing: border-box;  
+  }  
+  .modern-game-board .premium-card-costs .gem-cost-stone {  
+    width: 20px;  
+    height: 20px;  
+  }  
+  .modern-game-board .premium-card-costs .gem-cost strong {  
+    min-width: 0;  
+    font-size: 0.82rem;  
+    line-height: 1;  
+    text-align: center;  
+  }  
+  .modern-game-board .premium-free-card {  
+    grid-column: 1 / -1;  
+    text-align: center;  
+  }  
+  .modern-game-board .royal-deck-stack {  
+    width: min(100%, 172px);  
+    height: auto;  
+    aspect-ratio: 176 / 243;  
+    flex: none;  
+    justify-self: center;  
+    max-width: none;  
+  }  
+  .modern-game-board .royal-deck-layer,  
+  .modern-game-board .royal-deck-front {  
+    width: calc(100% - 10px);  
+    height: calc(100% - 10px);  
+    border-radius: 12px;  
+  }  
+}  

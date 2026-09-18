@@ -1,0 +1,26 @@
+.app {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.game-title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.game-title h1 {
+  font-size: 3rem;
+  color: #ffd86b;
+  text-shadow: 0 0 20px rgba(255, 216, 107, 0.4);
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+.card-market h2,
+.noble-gallery h2,
+.gem-vault h2 {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}

@@ -1,0 +1,129 @@
+.settings-screen {
+  width: min(1500px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.settings-screen-heading {
+  padding: 24px 26px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #1d314e, #0f1b2b);
+}
+
+.settings-screen-heading p {
+  margin: 0;
+  color: #d9b84f;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.settings-screen-heading h1 {
+  margin: 5px 0;
+  color: #ffd86b;
+  font-size: 2.5rem;
+}
+
+.settings-screen-heading span {
+  color: #9eb0c7;
+}
+
+.settings-screen-layout {
+  display: grid;
+  gap: 18px;
+}
+
+.settings-screen-group {
+  padding: 22px;
+  border: 1px solid #50627b;
+  border-radius: 16px;
+  background: #132438;
+}
+
+.settings-screen-group h2 {
+  margin: 0 0 14px;
+  color: #ffd86b;
+}
+
+.settings-screen-toggle,
+.settings-screen-volume {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 15px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.settings-screen-toggle:first-of-type,
+.settings-screen-volume:first-of-type {
+  border-top: 0;
+}
+
+.settings-screen-toggle span,
+.settings-screen-volume span,
+.settings-screen-toggle strong,
+.settings-screen-toggle small,
+.settings-screen-volume strong,
+.settings-screen-volume small {
+  display: block;
+}
+
+.settings-screen-toggle strong,
+.settings-screen-volume strong {
+  color: #eef3f8;
+}
+
+.settings-screen-toggle small,
+.settings-screen-volume small {
+  margin-top: 4px;
+  color: #91a6be;
+}
+
+.settings-screen-toggle input[type="checkbox"] {
+  width: 48px;
+  height: 25px;
+  accent-color: #d4af37;
+  cursor: pointer;
+}
+
+.settings-screen-volume input[type="range"] {
+  width: min(360px, 48vw);
+  accent-color: #d4af37;
+  cursor: pointer;
+}
+
+.settings-screen-toggle.is-disabled,
+.settings-screen-volume.is-disabled {
+  opacity: 0.45;
+}
+
+.settings-screen-toggle.is-disabled input,
+.settings-screen-volume.is-disabled input {
+  cursor: not-allowed;
+}
+
+@media (max-width: 650px) {
+  .settings-screen {
+    width: min(100% - 20px, 1500px);
+  }
+
+  .settings-screen-heading {
+    padding: 20px 18px;
+  }
+
+  .settings-screen-heading h1 {
+    font-size: 2rem;
+  }
+
+  .settings-screen-volume {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .settings-screen-volume input[type="range"] {
+    width: 100%;
+  }
+}

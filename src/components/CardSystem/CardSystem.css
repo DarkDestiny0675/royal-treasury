@@ -1,0 +1,99 @@
+.gem-cost {
+  --gem: #d4af37;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 58px;
+  height: 32px;
+  padding: 2px 7px 2px 3px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 17px;
+  color: #fff;
+  background: rgba(3, 9, 17, 0.84);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.55);
+  white-space: nowrap;
+}
+.gem-cost-stone {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  overflow: hidden;
+  clip-path: polygon(
+    50% 0,
+    86% 14%,
+    100% 50%,
+    72% 100%,
+    28% 100%,
+    0 50%,
+    14% 14%
+  );
+  background:
+    radial-gradient(
+      circle at 36% 28%,
+      rgba(255, 255, 255, 0.95),
+      transparent 18%
+    ),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.55), transparent 36%),
+    var(--gem);
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.7));
+}
+.gem-cost-stone:after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  clip-path: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.gem-cost-shine {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 9px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  transform: rotate(-28deg);
+}
+.gem-cost strong {
+  font:
+    900 1rem/1 Georgia,
+    serif;
+  text-shadow: 0 2px 3px #000;
+}
+.gem-cost-white {
+  --gem: #dcecff;
+}
+.gem-cost-blue {
+  --gem: #2179e8;
+}
+.gem-cost-green {
+  --gem: #1aa34a;
+}
+.gem-cost-red {
+  --gem: #d5323e;
+}
+.gem-cost-black {
+  --gem: #6b4426;
+}
+.gem-cost-gold {
+  --gem: #e3b51f;
+}
+.gem-cost-compact {
+  min-width: 28px;
+  height: 22px;
+  padding-right: 3px;
+}
+.gem-cost-compact .gem-cost-stone {
+  width: 15px;
+  height: 15px;
+  flex-basis: 15px;
+}
+.gem-cost-compact strong {
+  font-size: 0.78rem;
+}
+
+/* Onyx is represented by a dark polished brown throughout Royal Treasury. */
+.gem-cost-black {
+  --gem: #6b4426;
+}

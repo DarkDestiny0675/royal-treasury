@@ -1,0 +1,53 @@
+.tutorial-experience { position:relative; min-height:calc(100vh - 120px); }
+.tutorial-board { pointer-events:none; user-select:none; }
+.tutorial-full-shade { position:fixed; inset:0; z-index:9800; background:rgba(2,7,13,.86); backdrop-filter:blur(3px); }
+.tutorial-shade-layer { position:fixed; inset:0; z-index:9800; pointer-events:none; }
+.tutorial-shade { position:absolute; background:rgba(2,7,13,.84); backdrop-filter:blur(2px); }
+.tutorial-shade.top { top:0; left:0; right:0; }
+.tutorial-shade.left { left:0; }
+.tutorial-shade.right { right:0; }
+.tutorial-shade.bottom { left:0; right:0; bottom:0; }
+.tutorial-focus-ring { position:fixed; z-index:9801; box-sizing:border-box; border:3px solid #ffe78b; border-radius:18px; box-shadow:0 0 0 4px rgba(212,175,55,.18),0 0 42px rgba(255,216,107,.48); animation:tutorial-pulse 1.4s ease-in-out infinite alternate; }
+.tutorial-guide-card { position:fixed; z-index:9900; box-sizing:border-box; padding:26px; border:1px solid #d4af37; border-radius:18px; color:#eef3f8; background:linear-gradient(150deg,#243d60,#0c1b2d); box-shadow:0 28px 70px rgba(0,0,0,.64); }
+.tutorial-guide-card.centered { width:min(620px,calc(100vw - 32px)); top:50%; left:50%; transform:translate(-50%,-50%); }
+.tutorial-progress { display:flex; justify-content:space-between; gap:16px; color:#d4af37; font-size:.7rem; font-weight:900; letter-spacing:1.4px; text-transform:uppercase; }
+.tutorial-guide-card h1 { margin:12px 0 10px; color:#ffe78b; font:900 clamp(1.8rem,4vw,3rem)/1.05 Georgia,serif; }
+.tutorial-guide-card p { margin:0; color:#b4c2d2; font-size:1rem; line-height:1.65; }
+.tutorial-dots { display:flex; justify-content:center; gap:7px; margin:22px 0; }
+.tutorial-dots span { width:9px; height:9px; border:1px solid #60738c; border-radius:50%; background:#13263f; }
+.tutorial-dots span.complete { border-color:#8fa4be; background:#8fa4be; }
+.tutorial-dots span.active { border-color:#ffe78b; background:#ffe78b; box-shadow:0 0 12px rgba(255,231,139,.7); }
+.tutorial-actions { display:flex; align-items:center; justify-content:space-between; gap:14px; }
+.tutorial-actions>div { display:flex; gap:10px; }
+.tutorial-actions button { padding:11px 17px; border:1px solid #50627b; border-radius:9px; color:#dce5ef; background:#172b45; font-weight:900; cursor:pointer; }
+.tutorial-actions button:disabled { opacity:.35; cursor:not-allowed; }
+.tutorial-actions .tutorial-next { color:#09111c; border-color:#ffe78b; background:linear-gradient(145deg,#ffe78b,#c99800); }
+.tutorial-actions .tutorial-exit { color:#ffb4b8; border-color:#9e454c; background:rgba(153,43,51,.18); }
+@keyframes tutorial-pulse { from{box-shadow:0 0 0 3px rgba(212,175,55,.13),0 0 24px rgba(255,216,107,.28)} to{box-shadow:0 0 0 6px rgba(212,175,55,.22),0 0 50px rgba(255,216,107,.62)} }
+@media(max-width:650px){.tutorial-guide-card.targeted{left:16px!important;width:calc(100vw - 32px)!important}.tutorial-actions{align-items:stretch;flex-direction:column}.tutorial-actions>div{display:grid;grid-template-columns:1fr 1fr}.tutorial-actions .tutorial-exit{width:100%}}
+@media(prefers-reduced-motion:reduce){.tutorial-focus-ring{animation:none}}
+
+/* Stable top placement for rules whose highlighted outline must remain fully visible. */
+.tutorial-guide-card.targeted {
+  max-height: calc(100vh - 116px);
+  overflow-y: auto;
+}
+
+@media (max-width: 900px) {
+  .tutorial-guide-card.targeted {
+    max-height: calc(100vh - 104px);
+  }
+}
+
+/* Full interaction lock: only the z-indexed guide card controls remain clickable. */
+.tutorial-input-lock {
+  position: fixed;
+  inset: 0;
+  z-index: 9850;
+  cursor: default;
+  touch-action: none;
+}
+
+.tutorial-guide-card {
+  pointer-events: auto;
+}

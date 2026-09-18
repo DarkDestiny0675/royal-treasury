@@ -1,0 +1,13 @@
+import { Router } from "express";
+import { authenticateRequest } from "../middleware/authenticateRequest.js";
+import { addAi, getManagedRoom, ready, removeAi, removeHuman, settings, start, transfer } from "../services/roomManagementService.js";
+export const roomManagementRouter=Router();roomManagementRouter.use(authenticateRequest);
+const send=(res,result)=>res.status(result.status).json(result.ok?{room:result.room,matchId:result.matchId}:{message:result.message});
+roomManagementRouter.get("/:roomId",(req,res)=>{const room=getManagedRoom(req.params.roomId);res.status(room?200:404).json(room?{room}:{message:"That room is unavailable."});});
+roomManagementRouter.post("/:roomId/ready",(req,res)=>send(res,ready(req.user.userId,req.params.roomId,Boolean(req.body?.isReady))));
+roomManagementRouter.post("/:roomId/ai",(req,res)=>send(res,addAi(req.user.userId,req.params.roomId,req.body?.personalityId)));
+roomManagementRouter.delete("/:roomId/ai/:memberId",(req,res)=>send(res,removeAi(req.user.userId,req.params.roomId,req.params.memberId)));
+roomManagementRouter.delete("/:roomId/players/:memberId",(req,res)=>send(res,removeHuman(req.user.userId,req.params.roomId,req.params.memberId)));
+roomManagementRouter.post("/:roomId/transfer-host",(req,res)=>send(res,transfer(req.user.userId,req.params.roomId,req.body?.memberId)));
+roomManagementRouter.patch("/:roomId/settings",(req,res)=>send(res,settings(req.user.userId,req.params.roomId,req.body)));
+roomManagementRouter.post("/:roomId/start",(req,res)=>send(res,start(req.user.userId,req.params.roomId)));

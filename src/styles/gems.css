@@ -1,0 +1,109 @@
+.token {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.white {
+  background: white;
+}
+.blue {
+  background: blue;
+}
+.green {
+  background: green;
+}
+.red {
+  background: red;
+}
+.black {
+  background: black;
+}
+.gold {
+  background: gold;
+}
+
+.bonus-gem.white {
+  background: white;
+}
+.bonus-gem.blue {
+  background: #1d58c7;
+}
+.bonus-gem.green {
+  background: #118336;
+}
+.bonus-gem.red {
+  background: #b61717;
+}
+.bonus-gem.black {
+  background: #141414;
+}
+
+.gem-token {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+}
+
+.gem-token:hover {
+  transform: scale(1.08);
+  cursor: pointer;
+}
+
+.gem-shape {
+  width: 110px;
+  height: 110px;
+  clip-path: polygon(50% 0%, 95% 35%, 80% 90%, 20% 90%, 5% 35%);
+  position: relative;
+  border: 3px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    inset 0 0 15px rgba(255, 255, 255, 0.25),
+    0 0 30px rgba(255, 255, 255, 0.15),
+    0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.gem-highlight {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  filter: blur(2px);
+}
+
+.gem-info {
+  text-align: center;
+}
+.gem-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #f7f3e9;
+}
+.gem-count {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffd86b;
+}
+.gem-shape.white {
+  background: linear-gradient(135deg, #ffffff, #d8d8d8);
+}
+.gem-shape.blue {
+  background: linear-gradient(135deg, #67a0ff, #1d58c7);
+}
+.gem-shape.green {
+  background: linear-gradient(135deg, #4fd477, #118336);
+}
+.gem-shape.red {
+  background: linear-gradient(135deg, #ff7c7c, #b61717);
+}
+.gem-shape.black {
+  background: linear-gradient(135deg, #666666, #141414);
+}
+.gem-shape.gold {
+  background: linear-gradient(135deg, #ffe06b, #c99800);
+}

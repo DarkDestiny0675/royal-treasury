@@ -1,0 +1,64 @@
+.admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(2, 7, 13, 0.88);
+  backdrop-filter: blur(10px);
+}
+.admin-access-modal {
+  width: min(470px, 94vw);
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 34px;
+  border: 1px solid #d4af37;
+  border-radius: 20px;
+  color: #f6f1e4;
+  background: linear-gradient(150deg, #203858, #0b1727);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.62);
+}
+.admin-lock-mark {
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ffe78b;
+  border-radius: 50%;
+  color: #231800;
+  background: radial-gradient(circle at 35% 30%, #fff0a0, #d4a318 65%, #7b4e00);
+  font-size: 1.8rem;
+}
+.admin-access-modal p {
+  margin: 8px 0 0;
+  color: #d4af37;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.admin-access-modal h2 { margin: 0 0 12px; color: #ffe78b; font: 900 2.2rem Georgia, serif; }
+.admin-access-modal label { width: 100%; color: #aebed1; font-weight: 800; }
+.admin-access-modal input { width: 100%; padding: 13px 15px; border: 1px solid #50627b; border-radius: 9px; color: #fff; background: #081522; font: inherit; }
+.admin-access-modal input:focus { border-color: #d4af37; outline: 2px solid rgba(255, 216, 107, 0.4); }
+.admin-access-error { width: 100%; color: #ff8f91; font-size: 0.86rem; }
+.admin-modal-actions { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+.admin-modal-actions button,
+.admin-lock-button { padding: 12px 18px; border: 1px solid #50627b; border-radius: 9px; color: #eef3f8; background: #172b45; font-weight: 900; cursor: pointer; }
+.admin-modal-actions button[type="submit"] { color: #09111c; border-color: #ffe78b; background: linear-gradient(145deg, #ffe78b, #c99800); }
+.admin-screen-heading { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.admin-unlocked-badge { padding: 9px 14px; border: 1px solid #4fbd75; border-radius: 999px; color: #8ee2aa !important; background: rgba(79, 189, 117, 0.1); font-size: 0.72rem; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
+.admin-tool-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.admin-tool-card { min-height: 230px; display: flex; flex-direction: column; padding: 24px; border: 1px solid #50627b; border-radius: 16px; color: #f7f3e9; background: linear-gradient(155deg, #1b2d4a, #111f32); text-align: left; font: inherit; cursor: pointer; }
+.admin-tool-card:hover { border-color: #d4af37; transform: translateY(-4px); }
+.admin-tool-card span { color: #8fa4be; font-size: 0.72rem; font-weight: 900; letter-spacing: 1.4px; text-transform: uppercase; }
+.admin-tool-card strong { margin: 12px 0; color: #ffd86b; font-size: 1.45rem; }
+.admin-tool-card p { margin: 0; color: #a9b8ca; line-height: 1.55; }
+.admin-tool-card em { margin-top: auto; padding-top: 20px; color: #ffe78b; font-style: normal; font-weight: 900; }
+.admin-lock-button { border-color: #b34b52; color: #ffb4b8; background: rgba(153, 43, 51, 0.18); }
+@media (max-width: 800px) {
+  .admin-tool-grid { grid-template-columns: 1fr; }
+  .admin-screen-heading { align-items: flex-start; flex-direction: column; }
+}

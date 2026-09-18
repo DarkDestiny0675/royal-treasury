@@ -1,0 +1,452 @@
+.modern-game-board {
+  width: min(1920px, calc(100% - 16px));
+  display: grid;
+  grid-template-columns: clamp(320px, 19vw, 365px) 100px minmax(0, 1fr);
+  grid-template-rows: 240px repeat(3, minmax(270px, 1fr));
+  gap: 7px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.board-zone {
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 6px 8px;
+  box-sizing: border-box;
+  border: 1px solid #d4af37;
+  border-radius: 11px;
+  background: linear-gradient(180deg, rgba(22, 38, 58, 0.95), rgba(10, 17, 29, 0.95));
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.players-section {
+  position: sticky;
+  top: 72px;
+  z-index: 100;
+  grid-column: 1;
+  grid-row: 1 / -1;
+  max-height: calc(100dvh - 80px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  backdrop-filter: blur(10px);
+}
+
+.gem-vault {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.noble-gallery {
+  grid-column: 3;
+  grid-row: 1;
+  overflow: visible;
+}
+
+.card-market {
+  grid-column: 3;
+  display: grid;
+  grid-template-columns: 10% minmax(0, 90%);
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.card-market:nth-of-type(4) { grid-row: 2; }
+.card-market:nth-of-type(5) { grid-row: 3; }
+.card-market:nth-of-type(6) { grid-row: 4; }
+
+.board-zone-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  min-height: 24px;
+  margin-bottom: 3px;
+}
+
+.board-zone-heading span {
+  color: #b7c5d6;
+  font-size: 0.48rem;
+  font-weight: 900;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+}
+
+.board-zone-heading h2 {
+  margin: 0;
+  color: #ffd86b;
+  font-size: 0.88rem;
+  line-height: 1;
+}
+
+.board-zone-heading p {
+  margin: 0;
+  color: #9eb0c7;
+  font-size: 0.56rem;
+  line-height: 1;
+}
+
+.card-market > .board-zone-heading {
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  padding: 6px;
+  box-sizing: border-box;
+  justify-content: center;
+  text-align: center;
+  border-right: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+.card-market > .board-zone-heading > div {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  gap: 5px;
+}
+
+.card-market > .board-zone-heading span {
+  font-size: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.card-market > .board-zone-heading h2 {
+  font-size: clamp(1rem, 1.1vw, 1.35rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.card-market > .board-zone-heading p {
+  font-size: 0.66rem;
+  line-height: 1.15;
+}
+
+.player-treasury-heading {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+.player-treasury-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.treasury-log-button {
+  padding: 4px 7px;
+  border: 1px solid #d4af37;
+  border-radius: 7px;
+  color: #ffe78b;
+  background: #0d1b2d;
+  font-size: 0.6rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.treasury-status-message {
+  width: 100%;
+  min-height: 30px;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  padding: 4px 7px;
+  border: 1px solid rgba(212, 175, 55, 0.58);
+  border-radius: 7px;
+  color: #fff2b5;
+  background: #0b192a;
+  font: 900 0.78rem/1.1 Georgia, serif;
+  text-align: center;
+}
+
+.treasury-action-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+}
+
+.treasury-confirm-turn {
+  width: 100%;
+  padding: 5px 7px;
+  border: 1px solid #ffe78b;
+  border-radius: 7px;
+  color: #09111c;
+  background: linear-gradient(145deg, #ffe78b, #c99800);
+  font-size: 0.64rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.treasury-confirm-turn:disabled {
+  color: #76879d;
+  border-color: #3d4f67;
+  background: #15253a;
+  opacity: 0.72;
+}
+
+.token-row,
+.noble-row {
+  display: flex;
+  align-items: center;
+}
+
+.gem-vault .board-zone-heading {
+  justify-content: center;
+  text-align: center;
+}
+
+.gem-vault .board-zone-heading span { display: none; }
+
+.gem-vault .board-zone-heading h2 {
+  font-size: 0.72rem;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.gem-vault .token-row {
+  min-height: 0;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, minmax(54px, 1fr));
+  gap: 3px;
+  align-content: space-evenly;
+  justify-items: center;
+}
+
+.noble-row {
+  height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(4px, 0.55vw, 8px);
+  padding-top: 0;
+  margin-top: -35px;
+  flex-wrap: nowrap;
+}
+
+.card-row {
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) repeat(4, minmax(0, 1.75fr));
+  align-items: center;
+  justify-items: center;
+  column-gap: clamp(6px, 0.75vw, 14px);
+  overflow: hidden;
+  padding: 6px clamp(7px, 0.75vw, 14px);
+  box-sizing: border-box;
+}
+
+.game-log-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9800;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(2, 8, 15, 0.88);
+  backdrop-filter: blur(8px);
+}
+
+.game-log-dialog {
+  width: min(900px, 96vw);
+  max-height: 90dvh;
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid #d4af37;
+  border-radius: 16px;
+  background: #0d1b2d;
+}
+
+.game-log-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.game-log-dialog-actions button {
+  padding: 8px 13px;
+  border: 1px solid #d4af37;
+  border-radius: 8px;
+  color: #ffe78b;
+  background: #1b2f4d;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+@media (min-width: 1181px) {
+  .modern-game-board {
+    height: auto;
+    min-height: calc(100dvh - 82px);
+  }
+}
+
+@media (min-width: 1181px) and (max-height: 850px) {
+  .modern-game-board {
+    grid-template-columns: clamp(300px, 18vw, 345px) 82px minmax(0, 1fr);
+    grid-template-rows: minmax(150px, 0.55fr) repeat(3, minmax(245px, 1fr));
+    gap: 5px;
+  }
+
+  .board-zone { padding: 4px 6px; }
+
+  .board-zone-heading {
+    min-height: 20px;
+    margin-bottom: 2px;
+  }
+
+  .players-section {
+    top: 64px;
+    max-height: calc(100dvh - 70px);
+  }
+
+  .card-market > .board-zone-heading span { display: none; }
+  .card-market > .board-zone-heading h2 { font-size: 1rem; }
+}
+
+@media (max-width: 1180px) {
+  .modern-game-board {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .players-section,
+  .gem-vault,
+  .noble-gallery,
+  .card-market {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .players-section {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .gem-vault {
+    display: block;
+    overflow: visible;
+  }
+
+  .player-treasury-heading {
+    grid-template-columns: minmax(170px, auto) 1fr auto;
+    align-items: center;
+  }
+
+  .treasury-action-buttons { display: flex; }
+
+  .treasury-confirm-turn {
+    width: auto;
+    min-height: 36px;
+  }
+
+  .card-market {
+    grid-template-columns: 12% minmax(0, 88%);
+    min-height: 250px;
+  }
+
+  .card-row {
+    grid-template-columns: minmax(145px, 2fr) repeat(4, minmax(155px, 1.75fr));
+    justify-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .noble-row {
+    height: auto;
+    overflow-x: auto;
+    justify-content: flex-start;
+    margin-top: 0;
+    padding-bottom: 4px;
+  }
+
+  .gem-vault .token-row {
+    height: auto;
+    grid-template-columns: repeat(6, minmax(48px, 1fr));
+    grid-template-rows: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .modern-game-board {
+    width: calc(100% - 6px);
+    gap: 5px;
+  }
+
+  .board-zone {
+    padding: 6px;
+    border-radius: 9px;
+  }
+
+  .player-treasury-heading { grid-template-columns: 1fr; }
+
+  .treasury-action-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .treasury-confirm-turn { width: 100%; }
+
+  .card-market {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    min-height: 0;
+  }
+
+  .card-market > .board-zone-heading {
+    height: auto;
+    min-height: 54px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+  }
+
+  .card-market > .board-zone-heading > div {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .card-market > .board-zone-heading span { display: none; }
+  .card-market > .board-zone-heading h2 { font-size: 1rem; }
+
+  .card-row {
+    min-height: 221px;
+    grid-template-columns: 148px repeat(4, 160px);
+    justify-items: center;
+    overflow-x: auto;
+    padding: 5px;
+  }
+
+  .gem-vault .token-row {
+    grid-template-columns: repeat(3, minmax(68px, 1fr));
+  }
+
+  .game-log-overlay { padding: 8px; }
+  .game-log-dialog { padding: 10px; }
+
+  .noble-gallery .board-zone-heading {
+    min-height: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .noble-gallery .board-zone-heading span { display: none; }
+
+  .noble-gallery .board-zone-heading h2 {
+    line-height: 1;
+    margin: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .gem-vault .token-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,0 +1,1 @@
+import{Router}from"express";import{getDatabase}from"../database/database.js";export const healthRouter=Router();healthRouter.get("/",(q,s)=>{const r=getDatabase().prepare("SELECT 1 healthy").get();s.json({status:"ok",service:"royal-treasury-server",database:r?.healthy===1?"connected":"unavailable",timestamp:new Date().toISOString()});});

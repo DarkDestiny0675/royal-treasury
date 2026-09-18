@@ -1,0 +1,39 @@
+.turn-controls {
+  display: none;
+}
+
+.end-turn-button,
+.card-action-panel button,
+.action-mode-panel button {
+  background: #d4af37;
+  color: #09111c;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.end-turn-button {
+  padding: 10px 20px;
+}
+
+.card-action-panel,
+.action-mode-panel {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-action-panel button,
+.action-mode-panel button {
+  padding: 14px 28px;
+  min-width: 160px;
+  font-size: 1rem;
+}
+
+.card-action-panel .active-action-mode,
+.action-mode-panel .active-action-mode {
+  background: #fff1a8;
+  box-shadow: 0 0 14px rgba(255, 216, 107, 0.75);
+}

@@ -1,0 +1,13 @@
+import { Router } from "express";
+import { authenticateRequest } from "../middleware/authenticateRequest.js";
+import { addCommunityReply,createCommunityPost,deleteCommunityPost,deleteCommunityReply,getCommunityPost,isCommunityAdmin,listCommunityPosts,moderateCommunityPost,voteCommunityPost } from "../services/communityService.js";
+export const communityRouter=Router();communityRouter.use(authenticateRequest);
+communityRouter.get('/me',(req,res)=>res.json({isAdmin:isCommunityAdmin(req.user)}));
+communityRouter.get('/',(req,res)=>res.json({posts:listCommunityPosts(req.user.userId,req.query)}));
+communityRouter.post('/',(req,res)=>{const r=createCommunityPost(req.user.userId,req.body);res.status(r.status).json(r.ok?{post:r.post}:{message:r.message});});
+communityRouter.get('/:postId',(req,res)=>{const post=getCommunityPost(req.params.postId,req.user.userId);res.status(post?200:404).json(post?{post}:{message:'That discussion was not found.'});});
+communityRouter.post('/:postId/replies',(req,res)=>{const r=addCommunityReply(req.params.postId,req.user.userId,req.body);res.status(r.status).json(r.ok?{post:r.post}:{message:r.message});});
+communityRouter.put('/:postId/vote',(req,res)=>{const r=voteCommunityPost(req.params.postId,req.user.userId,req.body?.vote);res.status(r.status).json(r.ok?{post:r.post}:{message:r.message});});
+communityRouter.patch('/:postId/moderation',(req,res)=>{const r=moderateCommunityPost(req.params.postId,req.user,req.body);res.status(r.status).json(r.ok?{post:r.post}:{message:r.message});});
+communityRouter.delete('/:postId',(req,res)=>{const r=deleteCommunityPost(req.params.postId,req.user);res.status(r.status).json(r.ok?{deleted:true}:{message:r.message});});
+communityRouter.delete('/:postId/replies/:replyId',(req,res)=>{const r=deleteCommunityReply(req.params.postId,req.params.replyId,req.user);res.status(r.status).json(r.ok?{post:r.post}:{message:r.message});});

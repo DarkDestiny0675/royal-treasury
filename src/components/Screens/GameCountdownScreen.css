@@ -1,0 +1,130 @@
+.game-countdown-screen {
+  position: relative;
+  width: min(1500px, calc(100% - 40px));
+  min-height: 760px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+  padding: 42px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.58);
+  border-radius: 24px;
+  color: #f9f4e7;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255, 216, 107, 0.22), transparent 30%),
+    linear-gradient(145deg, #1b304d, #091522 68%, #050c15);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.46);
+}
+
+.countdown-radiance {
+  position: absolute;
+  width: 720px;
+  height: 720px;
+  border-radius: 50%;
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(255, 220, 112, 0.13) 0deg 7deg,
+    transparent 7deg 18deg
+  );
+  animation: countdown-spin 20s linear infinite;
+}
+
+.countdown-crown {
+  position: absolute;
+  top: 54px;
+  z-index: 2;
+  color: #ffd86b;
+  font-size: clamp(4rem, 7vw, 7rem);
+  filter: drop-shadow(0 0 24px rgba(255, 216, 107, 0.48));
+}
+
+.countdown-number-stage,
+.countdown-begin-stage {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.countdown-number-stage {
+  animation: countdown-arrive 0.55s cubic-bezier(0.2, 0.9, 0.25, 1.18) both;
+}
+
+.countdown-number-stage p,
+.countdown-begin-stage p {
+  margin: 0 0 12px;
+  color: #d4af37;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.countdown-number-stage > strong {
+  color: #fff1ae;
+  font: 900 clamp(10rem, 25vw, 20rem)/0.82 Georgia, serif;
+  text-shadow:
+    0 0 25px rgba(255, 216, 107, 0.45),
+    0 18px 38px rgba(0, 0, 0, 0.55);
+}
+
+.countdown-number-stage span {
+  margin-top: 34px;
+  color: #aebed1;
+  font-size: 1.05rem;
+}
+
+.countdown-begin-stage {
+  animation: begin-reveal 0.75s cubic-bezier(0.2, 0.9, 0.25, 1.12) both;
+}
+
+.countdown-begin-stage h1 {
+  margin: 0;
+  color: #fff2b5;
+  font: 900 clamp(3.5rem, 8vw, 7.5rem)/1 Georgia, serif;
+  text-shadow: 0 0 38px rgba(255, 216, 107, 0.5);
+}
+
+.countdown-begin-stage > strong {
+  margin-top: 28px;
+  padding: 12px 22px;
+  border: 1px solid rgba(255, 231, 139, 0.55);
+  border-radius: 999px;
+  color: #ffe78b;
+  background: rgba(8, 20, 34, 0.7);
+  font-size: 1.15rem;
+}
+
+@keyframes countdown-arrive {
+  from { opacity: 0; transform: scale(0.45) translateY(60px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes begin-reveal {
+  from { opacity: 0; transform: scale(0.78); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes countdown-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 650px) {
+  .game-countdown-screen {
+    width: calc(100% - 20px);
+    min-height: 650px;
+    padding: 28px 16px;
+  }
+
+  .countdown-crown { top: 36px; }
+  .countdown-begin-stage > strong { font-size: 0.95rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .countdown-radiance,
+  .countdown-number-stage,
+  .countdown-begin-stage {
+    animation: none;
+  }
+}

@@ -1,0 +1,72 @@
+.screen-content-width,
+.screen-panel {
+  width: min(1500px, calc(100% - 40px));
+  margin: 0 auto;
+}
+.screen-heading {
+  padding: 24px 26px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #1d314e, #0f1b2b);
+}
+.screen-heading p {
+  margin: 0;
+  color: #d9b84f;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.screen-heading h1 {
+  margin: 5px 0;
+  color: #ffd86b;
+  font-size: 2.5rem;
+}
+.screen-heading span { color: #9eb0c7; }
+.screen-footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.credits-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 18px;
+}
+.credits-card {
+  padding: 22px;
+  border: 1px solid #50627b;
+  border-radius: 16px;
+  background: linear-gradient(155deg, #1b2d4a, #111f32);
+}
+.credits-card span {
+  color: #8fa4be;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.credits-card p {
+  margin: 0;
+  color: #a9b8ca;
+  line-height: 1.55;
+}
+.credits-card h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  color: #ffd86b;
+}
+.featured-credit { border-color: #d4af37; }
+.game-save-toolbar { width: min(1500px, calc(100% - 40px)); display: flex; align-items: center; justify-content: flex-end; gap: 14px; margin: 16px auto; padding: 10px 14px; border: 1px solid rgba(212,175,55,.38); border-radius: 12px; color: #9eb0c7; background: #101f33; }
+.game-save-toolbar button { padding: 10px 18px; border: 1px solid #ffe78b; border-radius: 9px; color: #09111c; background: linear-gradient(145deg,#ffe78b,#c99800); font-weight: 800; cursor: pointer; }
+@media (max-width: 1000px) {
+  .credits-layout { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 650px) {
+  .screen-content-width,
+  .screen-panel { width: min(100% - 20px, 1500px); }
+  .credits-layout { grid-template-columns: 1fr; }
+}

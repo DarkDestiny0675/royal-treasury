@@ -1,0 +1,113 @@
+.credits-screen {
+  width: min(1200px, calc(100% - 40px));
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+}
+
+.credits-card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 34px;
+  border: 1px solid #d4af37;
+  border-radius: 22px;
+  color: #eef3f8;
+  background:
+    radial-gradient(circle at 50% 0, rgba(255, 216, 107, 0.12), transparent 32%),
+    linear-gradient(145deg, #203858, #0b1727 70%);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
+}
+
+.credits-heading {
+  text-align: center;
+}
+
+.credits-heading p {
+  margin: 0;
+  color: #d4af37;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+}
+
+.credits-heading h1 {
+  margin: 8px 0 4px;
+  color: #ffe78b;
+  font: 900 clamp(2.6rem, 6vw, 5rem) Georgia, serif;
+}
+
+.credits-heading span {
+  color: #9eb0c7;
+}
+
+.credits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 30px 0;
+}
+
+.credits-section {
+  padding: 20px;
+  border: 1px solid #50627b;
+  border-radius: 14px;
+  background: rgba(17, 35, 56, 0.78);
+}
+
+.credits-section h2 {
+  margin: 0 0 10px;
+  color: #ffd86b;
+  font-size: 1.12rem;
+}
+
+.credits-section strong {
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.credits-section p,
+.credits-section li {
+  color: #aebed1;
+  line-height: 1.55;
+}
+
+.credits-section ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.credits-card blockquote {
+  max-width: 760px;
+  margin: 24px auto;
+  color: #fff0a8;
+  font: italic 1.25rem/1.55 Georgia, serif;
+  text-align: center;
+}
+
+.credits-close-button {
+  min-width: 190px;
+  display: block;
+  margin: 28px auto 0;
+  padding: 12px 24px;
+  border: 1px solid #ffe78b;
+  border-radius: 9px;
+  color: #09111c;
+  background: linear-gradient(145deg, #ffe78b, #c99800);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+@media (max-width: 760px) {
+  .credits-screen {
+    width: calc(100% - 20px);
+  }
+
+  .credits-card {
+    padding: 22px;
+  }
+
+  .credits-grid {
+    grid-template-columns: 1fr;
+  }
+}

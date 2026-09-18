@@ -1,0 +1,81 @@
+.seating-ceremony-screen {
+  width: min(1500px, calc(100% - 40px));
+  min-height: 760px;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 26px;
+  margin: 0 auto;
+  padding: 42px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.52);
+  border-radius: 24px;
+  color: #f7f3e9;
+  background: radial-gradient(circle at 50% 42%, rgba(212, 175, 55, 0.16), transparent 27%), linear-gradient(145deg, #1b304d, #0a1625 64%, #07101c);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.42);
+}
+
+.seating-ceremony-heading { text-align: center; }
+.seating-ceremony-heading p { margin: 0; color: #d4af37; font-size: 0.78rem; font-weight: 900; letter-spacing: 2.4px; text-transform: uppercase; }
+.seating-ceremony-heading h1 { margin: 7px 0; color: #ffe78b; font: 900 clamp(2.7rem, 5vw, 5rem)/1 Georgia, serif; }
+.seating-ceremony-heading span { color: #9eb0c7; }
+
+.seating-ceremony-stage {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 460px minmax(300px, 1fr);
+  align-items: center;
+  gap: 32px;
+}
+
+.seating-name-pool,
+.seating-results { display: grid; gap: 12px; }
+.seating-name-pool h2,
+.seating-results h2 { margin: 0 0 5px; color: #d4af37; font: 700 1rem Georgia, serif; text-align: center; }
+.seating-name-pool span { padding: 13px 18px; border: 1px solid #50627b; border-radius: 11px; color: #dce6f2; background: rgba(14, 30, 49, 0.82); font-weight: 900; text-align: center; transition: opacity 0.45s ease, transform 0.45s ease; }
+.seating-name-pool span.drawn { opacity: 0.2; transform: translateX(24px) scale(0.94); text-decoration: line-through; }
+
+.royal-draw-scene { position: relative; min-height: 430px; display: grid; place-items: center; overflow: visible; }
+.royal-hat { position: absolute; left: 50%; bottom: 105px; z-index: 2; font-size: 13rem; transform: translateX(-50%); filter: drop-shadow(0 20px 26px rgba(0, 0, 0, 0.58)); }
+.royal-hand { position: absolute; top: 10px; right: -10px; z-index: 5; font-size: 8.5rem; transform-origin: 80% 30%; transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.phase-ready .royal-hand { transform: translate(70px, -20px) rotate(18deg); }
+.phase-reaching .royal-hand { transform: translate(-116px, 162px) rotate(-38deg) scale(0.94); }
+.phase-lifting .royal-hand { transform: translate(-72px, 38px) rotate(-15deg); }
+.phase-seating .royal-hand { transform: translate(86px, 5px) rotate(12deg); }
+
+.royal-name-slip { position: absolute; left: 50%; bottom: 165px; z-index: 4; min-width: 190px; padding: 12px 20px; border: 2px solid #c99a22; border-radius: 7px; color: #251900; background: linear-gradient(145deg, #fff3b4, #d5aa35); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.44); font: 900 1.35rem Georgia, serif; text-align: center; opacity: 0; transform: translate(-50%, 90px) rotate(-7deg) scale(0.72); transition: opacity 0.35s ease, transform 0.8s cubic-bezier(0.2, 0.9, 0.25, 1.15); }
+.phase-lifting .royal-name-slip { opacity: 1; transform: translate(-50%, -65px) rotate(3deg) scale(1); }
+.phase-seating .royal-name-slip { opacity: 0; transform: translate(230px, -75px) rotate(7deg) scale(0.9); }
+
+.royal-sparkles { position: absolute; bottom: 70px; color: #ffe78b; font-size: 2.2rem; letter-spacing: 18px; animation: royal-sparkle 1.2s ease-in-out infinite alternate; }
+.royal-draw-caption { position: absolute; bottom: 15px; width: 100%; margin: 0; color: #fff0ae; font-weight: 900; text-align: center; }
+
+.seating-result-card { min-height: 86px; display: grid; grid-template-columns: 76px 1fr; align-items: center; gap: 3px 14px; padding: 14px 18px; border: 1px solid #50627b; border-radius: 13px; background: linear-gradient(145deg, #203858, #0d1b2d); transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease; }
+.seating-result-card.hidden { opacity: 0.32; transform: translateX(24px); }
+.seating-result-card.revealed { opacity: 1; border-color: rgba(212, 175, 55, 0.65); transform: translateX(0); }
+.seating-result-card.arriving { box-shadow: 0 0 30px rgba(255, 216, 107, 0.35); animation: seat-arrival 0.65s ease both; }
+.seating-result-card span { grid-row: 1 / 3; color: #d4af37; font-weight: 900; text-transform: uppercase; }
+.seating-result-card strong { color: #fff4c9; font-size: 1.3rem; }
+.seating-result-card small { color: #8fa4be; }
+
+.seating-begin-button { min-width: 310px; padding: 15px 26px; border: 1px solid #ffe78b; border-radius: 11px; color: #09111c; background: linear-gradient(145deg, #ffe78b, #c99800); font-size: 1.12rem; font-weight: 900; cursor: pointer; }
+.seating-begin-button:disabled { color: #8192a8; border-color: #405269; background: #14253a; cursor: wait; }
+
+@keyframes royal-sparkle { from { opacity: 0.35; transform: scale(0.9); } to { opacity: 1; transform: scale(1.08); } }
+@keyframes seat-arrival { from { transform: translateX(-60px) scale(0.9); } to { transform: translateX(0) scale(1); } }
+
+@media (max-width: 1050px) {
+  .seating-ceremony-stage { grid-template-columns: 1fr 1fr; }
+  .royal-draw-scene { grid-column: 1 / -1; grid-row: 1; min-height: 390px; }
+}
+
+@media (max-width: 650px) {
+  .seating-ceremony-screen { width: calc(100% - 20px); padding: 26px 16px; }
+  .seating-ceremony-stage { grid-template-columns: 1fr; }
+  .royal-draw-scene { min-height: 340px; }
+  .royal-hat { font-size: 10rem; }
+  .royal-hand { right: 0; font-size: 6.5rem; }
+  .phase-reaching .royal-hand { transform: translate(-92px, 132px) rotate(-38deg) scale(0.94); }
+  .phase-seating .royal-name-slip { transform: translate(120px, -60px) scale(0.85); }
+  .seating-begin-button { width: 100%; min-width: 0; }
+}

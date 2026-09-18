@@ -1,0 +1,129 @@
+.online-game-screen {
+  display: grid;
+  gap: 16px;
+}
+
+.online-game-screen > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  border: 1px solid #806b20;
+  border-radius: 16px;
+  background: #172d49;
+}
+
+.online-game-screen header p {
+  margin: 0;
+  color: #d4af37;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.online-game-screen header h1 {
+  margin: 4px 0;
+  color: #ffe78b;
+  font: 900 2.4rem Georgia, serif;
+}
+
+.online-game-screen header span {
+  color: #a8bad0;
+}
+
+.online-game-screen header > div:last-child {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.online-game-screen header b {
+  color: #9bd7ae;
+  text-transform: capitalize;
+}
+
+.online-game-screen button {
+  padding: 9px 12px;
+  border: 1px solid #667792;
+  border-radius: 8px;
+  color: #fff;
+  background: #1b2f4d;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.online-game-screen button:hover:not(:disabled) {
+  border-color: #d4af37;
+  background: #243d61;
+}
+
+.online-game-screen button:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+.online-game-message,
+.online-game-loading {
+  padding: 18px;
+  border: 1px solid #a55862;
+  border-radius: 10px;
+  color: #ffd6da;
+  background: #3a2028;
+}
+
+.online-leave-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(2, 8, 15, 0.84);
+  backdrop-filter: blur(5px);
+}
+
+.online-leave-dialog {
+  width: min(480px, 100%);
+  display: grid;
+  gap: 12px;
+  padding: 28px;
+  border: 1px solid #d4af37;
+  border-radius: 18px;
+  color: #eef3f8;
+  background: linear-gradient(155deg, #1c3555, #0d1d31);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.58);
+}
+
+.online-leave-dialog h2 {
+  margin: 0;
+  color: #ffe78b;
+  font: 900 2rem Georgia, serif;
+}
+
+.online-leave-dialog p {
+  margin: 0 0 8px;
+  color: #b8c7d9;
+  line-height: 1.5;
+}
+
+.online-leave-dialog button {
+  width: 100%;
+  min-height: 44px;
+}
+
+.online-leave-dialog button:last-child {
+  border-color: #d4af37;
+  color: #171006;
+  background: linear-gradient(145deg, #ffe78b, #c99800);
+}
+
+@media (max-width: 700px) {
+  .online-game-screen > header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .online-leave-dialog {
+    padding: 22px;
+  }
+}

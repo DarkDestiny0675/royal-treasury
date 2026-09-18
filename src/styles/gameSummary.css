@@ -1,0 +1,770 @@
+.victory-experience {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow-y: auto;
+  color: #f8f4e8;
+  background:
+    radial-gradient(
+      circle at 50% 12%,
+      rgba(255, 216, 107, 0.18),
+      transparent 28%
+    ),
+    linear-gradient(145deg, #050b13, #0b1726 52%, #050a11);
+}
+.victory-reveal {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  overflow: hidden;
+  padding: 48px;
+  text-align: center;
+  position: relative;
+}
+.victory-rays {
+  position: absolute;
+  width: 760px;
+  height: 760px;
+  border-radius: 50%;
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(255, 220, 112, 0.18) 0deg 7deg,
+    transparent 7deg 18deg
+  );
+  animation: victory-spin 18s linear infinite;
+}
+.victory-trophy {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(8rem, 18vw, 15rem);
+  line-height: 1;
+  filter: drop-shadow(0 0 38px rgba(255, 214, 82, 0.72));
+  animation:
+    trophy-arrive 0.9s cubic-bezier(0.2, 0.9, 0.2, 1.2) both,
+    trophy-shimmer 1.4s ease-in-out infinite alternate;
+}
+.victory-reveal > p {
+  position: relative;
+  z-index: 2;
+  margin: 24px 0 5px;
+  color: #d4af37;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.victory-reveal > h1 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  color: #fff4bf;
+  font:
+    900 clamp(3.2rem, 8vw, 7rem)/1 Georgia,
+    serif;
+  text-shadow: 0 0 35px rgba(255, 216, 107, 0.42);
+}
+.victory-winner-banner {
+  position: relative;
+  z-index: 2;
+  min-width: min(720px, 90vw);
+  margin-top: 28px;
+  padding: 18px 32px;
+  border: 1px solid rgba(255, 226, 128, 0.62);
+  border-radius: 16px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.18),
+    transparent
+  );
+}
+.victory-winner-banner span,
+.victory-winner-banner strong {
+  display: block;
+}
+.victory-winner-banner span {
+  color: #d4af37;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.victory-winner-banner strong {
+  margin-top: 4px;
+  color: #fff5c7;
+  font:
+    900 clamp(2.2rem, 6vw, 5rem)/1 Georgia,
+    serif;
+}
+.victory-reveal > small {
+  position: relative;
+  z-index: 2;
+  margin-top: 18px;
+  color: #aebed1;
+  font-size: 1rem;
+}
+.victory-results {
+  width: min(1660px, 97vw);
+  margin: 0 auto;
+  padding: 44px 24px 80px;
+  animation: results-rise 0.65s ease both;
+}
+.victory-results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 30px;
+  padding: 24px 30px;
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  border-radius: 18px;
+  background: linear-gradient(
+    110deg,
+    rgba(212, 175, 55, 0.14),
+    rgba(21, 39, 61, 0.86)
+  );
+}
+.victory-results-header span,
+.final-standings-section header span {
+  color: #d4af37;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.victory-results-header h1,
+.final-standings-section h2 {
+  margin: 4px 0 0;
+  color: #fff4c9;
+  font-family: Georgia, serif;
+}
+.victory-results-seal {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ffe38a;
+  border-radius: 50%;
+  color: #211600;
+  font-size: 2rem;
+  background: radial-gradient(circle at 35% 30%, #fff0a0, #d4a318 65%, #7b4e00);
+}
+.champion-showcase {
+  padding: 48px;
+  border: 2px solid #d4af37;
+  border-radius: 26px;
+  background:
+    linear-gradient(125deg, rgba(255, 216, 107, 0.12), transparent 38%),
+    linear-gradient(160deg, #203858, #0d1b2d);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.48),
+    0 0 45px rgba(212, 175, 55, 0.12);
+}
+.champion-title-block {
+  text-align: center;
+}
+.champion-crown {
+  display: block;
+  color: #ffd86b;
+  font-size: 4rem;
+  filter: drop-shadow(0 0 18px rgba(255, 216, 107, 0.45));
+}
+.champion-title-block p {
+  margin: 8px 0 2px;
+  color: #d4af37;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.champion-title-block h2 {
+  margin: 0;
+  color: #fff7d7;
+  font:
+    900 clamp(3rem, 7vw, 6rem)/1 Georgia,
+    serif;
+}
+.champion-title-block > strong {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 226, 128, 0.65);
+  border-radius: 999px;
+  color: #ffd86b;
+  background: rgba(6, 13, 22, 0.54);
+  font-size: 1.2rem;
+}
+.victory-margin-headline {
+  margin: 18px 0 0;
+  color: #ffd86b;
+  font:
+    900 clamp(1.7rem, 3vw, 2.5rem)/1.1 Georgia,
+    serif;
+  text-align: center;
+  text-shadow: 0 0 18px rgba(255, 216, 107, 0.22);
+}
+.champion-stat-grid,
+.final-player-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.champion-stat-grid {
+  max-width: 1100px;
+  margin: 38px auto 0;
+}
+.victory-stat {
+  padding: 18px 10px;
+  text-align: center;
+  border: 1px solid rgba(105, 129, 158, 0.55);
+  border-radius: 13px;
+  background: rgba(6, 15, 26, 0.58);
+}
+.victory-stat strong,
+.victory-stat span {
+  display: block;
+}
+.victory-stat strong {
+  color: #ffd86b;
+  font-size: 1.8rem;
+  text-transform: capitalize;
+}
+.victory-stat span {
+  margin-top: 4px;
+  color: #92a8c1;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.victory-featured-collection {
+  margin-top: 24px;
+  padding: 22px;
+  border: 1px solid rgba(80, 98, 123, 0.72);
+  border-radius: 16px;
+  background: rgba(5, 13, 23, 0.55);
+}
+.victory-featured-collection.featured {
+  margin-top: 32px;
+  padding: 28px;
+  border-color: rgba(212, 175, 55, 0.55);
+}
+.victory-featured-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.victory-featured-heading span,
+.victory-featured-heading small {
+  display: block;
+}
+.victory-featured-heading span {
+  color: #f3e5b0;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+.victory-featured-heading small {
+  margin-top: 5px;
+  color: #8298b2;
+}
+.victory-featured-heading strong {
+  color: #ffd86b;
+}
+.victory-featured-body {
+  display: block;
+}
+.victory-featured-card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 28px;
+}
+.victory-featured-card {
+  width: 250px;
+  height: 330px;
+  flex: 0 0 250px;
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: #07111d;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+.victory-featured-card .premium-development-card,
+.victory-featured-card .premium-development-card:hover,
+.victory-featured-card .premium-development-card:focus-visible {
+  width: 250px;
+  height: 330px;
+  transform: none;
+  transform-origin: center;
+  cursor: default;
+}
+.victory-featured-nobles {
+  min-height: 250px;
+  margin-top: 30px;
+  padding: 24px 0 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 0;
+}
+.victory-featured-noble-label {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 16px;
+  color: #9eb0c7;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.victory-featured-noble-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+.victory-featured-noble {
+  width: 210px;
+  height: 231px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 12px;
+  background: #080d15;
+}
+.victory-featured-noble .sovereign-card,
+.victory-featured-noble .sovereign-card:hover,
+.victory-featured-noble .sovereign-card:focus-visible {
+  transform: scale(0.7);
+  transform-origin: top left;
+  cursor: default;
+}
+.victory-featured-nobles p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #8195ab;
+}
+.victory-view-collection {
+  width: min(420px, 100%);
+  display: block;
+  margin: 24px auto 0;
+  padding: 13px 20px;
+  border: 1px solid #d4af37;
+  border-radius: 10px;
+  color: #ffe78b;
+  background: #172a43;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+.victory-view-collection:hover,
+.victory-view-collection:focus-visible {
+  background: #213b5d;
+  outline: 2px solid rgba(255, 231, 139, 0.7);
+  outline-offset: 3px;
+}
+.champion-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 22px;
+}
+.victory-resource-panel {
+  padding: 18px;
+  border: 1px solid rgba(80, 98, 123, 0.72);
+  border-radius: 14px;
+  background: rgba(5, 13, 23, 0.48);
+}
+.victory-resource-panel h3 {
+  margin: 0 0 14px;
+  color: #d9e2ee;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.victory-resource-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+.victory-gem {
+  --gem: #d4af37;
+  min-width: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: #07111e;
+}
+.victory-gem span {
+  width: 22px;
+  height: 22px;
+  clip-path: polygon(
+    50% 0,
+    86% 14%,
+    100% 51%,
+    72% 100%,
+    28% 100%,
+    0 51%,
+    14% 14%
+  );
+  background: var(--gem);
+}
+.victory-gem-white {
+  --gem: #dcecff;
+}
+.victory-gem-blue {
+  --gem: #2179e8;
+}
+.victory-gem-green {
+  --gem: #1aa34a;
+}
+.victory-gem-red {
+  --gem: #d5323e;
+}
+.victory-gem-black {
+  --gem: #6b4426;
+}
+.victory-gem-gold {
+  --gem: #e0af20;
+}
+.final-standings-section {
+  margin-top: 48px;
+}
+.final-standings-section > header {
+  margin-bottom: 18px;
+}
+.final-standings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+}
+.final-player-card {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid #50627b;
+  border-radius: 18px;
+  background: linear-gradient(160deg, #1b2f4b, #0c1828);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.32);
+}
+.final-rank-2 {
+  border-color: #cbd2dc;
+}
+.final-rank-3 {
+  border-color: #b27a46;
+}
+.final-player-heading {
+  display: grid;
+  grid-template-columns: 46px 54px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+.final-player-rank {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(212, 175, 55, 0.52);
+  border-radius: 50%;
+  color: #ffd86b;
+  background: rgba(212, 175, 55, 0.08);
+  font:
+    900 1rem/1 Georgia,
+    serif;
+}
+.final-player-avatar {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 900;
+  background: linear-gradient(145deg, #e56b6f, #a5222c);
+}
+.final-player-identity {
+  min-width: 0;
+}
+.final-player-identity span {
+  color: #8fa4be;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+}
+.final-player-identity h3 {
+  margin: 3px 0 0;
+  overflow: hidden;
+  color: #fff;
+  font-size: 1.25rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.final-player-score {
+  min-width: 62px;
+  text-align: right;
+}
+.final-player-score strong,
+.final-player-score span {
+  display: block;
+}
+.final-player-score strong {
+  color: #ffd86b;
+  font-size: 2rem;
+  line-height: 1;
+}
+.final-player-score span {
+  margin-top: 4px;
+  color: #8fa4be;
+  font-size: 0.58rem;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.final-player-stats {
+  gap: 7px;
+  margin-top: 22px;
+}
+.final-player-stats .victory-stat {
+  padding: 11px 4px;
+}
+.final-player-stats .victory-stat strong {
+  font-size: 1.2rem;
+}
+.final-player-card .victory-featured-body {
+  grid-template-columns: 1fr;
+}
+.final-player-card .victory-featured-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 130px);
+  justify-content: space-between;
+  align-items: start;
+  gap: 16px;
+}
+.final-player-card .victory-featured-card {
+  width: 130px;
+  height: 172px;
+  min-width: 0;
+  overflow: hidden;
+}
+.final-player-card .victory-featured-card .premium-development-card,
+.final-player-card .victory-featured-card .premium-development-card:hover,
+.final-player-card
+  .victory-featured-card
+  .premium-development-card:focus-visible {
+  width: 250px;
+  height: 330px;
+  transform: scale(0.52);
+  transform-origin: top left;
+}
+.final-player-card .victory-featured-collection {
+  padding: 18px;
+}
+.final-player-card .victory-featured-nobles {
+  margin-top: 18px;
+  padding: 14px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 0;
+}
+.final-player-card .victory-featured-noble-grid {
+  justify-content: start;
+}
+.final-player-card .victory-featured-noble {
+  width: 132px;
+  height: 146px;
+}
+.final-player-card .victory-featured-noble .sovereign-card,
+.final-player-card .victory-featured-noble .sovereign-card:hover,
+.final-player-card .victory-featured-noble .sovereign-card:focus-visible {
+  transform: scale(0.44);
+}
+.victory-close-summary {
+  width: min(420px, 90vw);
+  display: block;
+  margin: 42px auto 0;
+  padding: 16px 24px;
+  border: 1px solid #ffe78b;
+  border-radius: 12px;
+  color: #09111c;
+  background: linear-gradient(145deg, #ffe78b, #c99800);
+  font-size: 1.25rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+}
+.victory-close-summary:hover,
+.victory-close-summary:focus-visible {
+  filter: brightness(1.08);
+  outline: 2px solid #fff0aa;
+  outline-offset: 3px;
+}
+@keyframes victory-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes trophy-arrive {
+  from {
+    opacity: 0;
+    transform: scale(0.35) translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+@keyframes trophy-shimmer {
+  from {
+    filter: drop-shadow(0 0 22px rgba(255, 214, 82, 0.45));
+  }
+  to {
+    filter: drop-shadow(0 0 58px rgba(255, 235, 145, 0.95));
+  }
+}
+@keyframes results-rise {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 1200px) {
+  .final-standings-grid {
+    grid-template-columns: 1fr;
+  }
+  .final-player-card .victory-featured-card-grid {
+    grid-template-columns: repeat(3, 190px);
+    justify-content: center;
+    gap: 28px;
+  }
+  .final-player-card .victory-featured-card {
+    width: 190px;
+    height: 251px;
+  }
+  .final-player-card .victory-featured-card .premium-development-card,
+  .final-player-card .victory-featured-card .premium-development-card:hover,
+  .final-player-card
+    .victory-featured-card
+    .premium-development-card:focus-visible {
+    width: 250px;
+    height: 330px;
+    transform: scale(0.76);
+    transform-origin: top left;
+  }
+}
+@media (max-width: 900px) {
+  .champion-showcase {
+    padding: 30px 18px;
+  }
+  .champion-detail-grid {
+    grid-template-columns: 1fr;
+  }
+  .champion-stat-grid,
+  .final-player-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .victory-featured-card-grid {
+    gap: 20px;
+  }
+  .final-player-card .victory-featured-card-grid {
+    grid-template-columns: repeat(3, 150px);
+    gap: 18px;
+  }
+  .final-player-card .victory-featured-card {
+    width: 150px;
+    height: 198px;
+  }
+  .final-player-card .victory-featured-card .premium-development-card,
+  .final-player-card .victory-featured-card .premium-development-card:hover,
+  .final-player-card
+    .victory-featured-card
+    .premium-development-card:focus-visible {
+    transform: scale(0.6);
+  }
+}
+@media (max-width: 650px) {
+  .victory-reveal {
+    padding: 26px 16px;
+  }
+  .victory-results {
+    padding: 24px 12px 56px;
+  }
+  .victory-results-header {
+    padding: 18px;
+  }
+  .final-player-heading {
+    grid-template-columns: 40px 46px minmax(0, 1fr);
+  }
+  .final-player-score {
+    grid-column: 2/-1;
+    text-align: left;
+  }
+  .victory-featured-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+  .victory-featured-card-grid {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .victory-featured-card {
+    width: 160px;
+    height: 211px;
+    flex-basis: 160px;
+  }
+  .victory-featured-card .premium-development-card,
+  .victory-featured-card .premium-development-card:hover,
+  .victory-featured-card .premium-development-card:focus-visible {
+    width: 250px;
+    height: 330px;
+    transform: scale(0.64);
+    transform-origin: top left;
+  }
+  .final-player-card .victory-featured-card-grid {
+    grid-template-columns: repeat(3, 92px);
+    gap: 8px;
+  }
+  .final-player-card .victory-featured-card {
+    width: 92px;
+    height: 122px;
+  }
+  .final-player-card .victory-featured-card .premium-development-card,
+  .final-player-card .victory-featured-card .premium-development-card:hover,
+  .final-player-card
+    .victory-featured-card
+    .premium-development-card:focus-visible {
+    width: 250px;
+    height: 330px;
+    transform: scale(0.368);
+    transform-origin: top left;
+  }
+  .victory-featured-noble {
+    width: 180px;
+    height: 198px;
+  }
+  .victory-featured-noble .sovereign-card,
+  .victory-featured-noble .sovereign-card:hover,
+  .victory-featured-noble .sovereign-card:focus-visible {
+    transform: scale(0.6);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .victory-rays,
+  .victory-trophy,
+  .victory-results {
+    animation: none;
+  }
+}

@@ -1,0 +1,12 @@
+.settings-layout { display:grid; gap:18px; }
+.settings-group { padding:22px; border:1px solid #50627b; border-radius:16px; background:#132438; }
+.settings-group h2 { margin:0 0 14px; color:#ffd86b; }
+.setting-row,.setting-volume-row { display:flex; align-items:center; justify-content:space-between; gap:22px; padding:15px 0; border-top:1px solid rgba(255,255,255,.08); }
+.setting-row:first-of-type,.setting-volume-row:first-of-type { border-top:0; }
+.setting-row span,.setting-volume-row span,.setting-row strong,.setting-row small,.setting-volume-row strong,.setting-volume-row small { display:block; }
+.setting-row strong,.setting-volume-row strong { color:#eef3f8; }
+.setting-row small,.setting-volume-row small { margin-top:4px; color:#91a6be; }
+.setting-row input[type="checkbox"] { width:48px; height:25px; accent-color:#d4af37; cursor:pointer; }
+.setting-volume-row input[type="range"] { width:min(360px,48vw); accent-color:#d4af37; cursor:pointer; }
+.setting-row.disabled,.setting-volume-row.disabled { opacity:.45; }
+@media(max-width:650px){.setting-volume-row{align-items:stretch;flex-direction:column}.setting-volume-row input[type="range"]{width:100%}}
