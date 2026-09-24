@@ -52,9 +52,14 @@ function strongestDiscount(player) {
   );
 }
 
-function GameSummary({ players = [], winners = [], gameLog = [] }) {
+function GameSummary({
+  players = [],
+  winners = [],
+  gameLog = [],
+  onPlayAgain,
+  onReturnHome,
+}) {
   const [showResults, setShowResults] = useState(false);
-  const [dismissed, setDismissed] = useState(false);
   const [collectionPlayer, setCollectionPlayer] = useState(null);
   const standings = sortedPlayers(players);
   const champion = winners[0] || standings[0];
@@ -70,7 +75,7 @@ function GameSummary({ players = [], winners = [], gameLog = [] }) {
     return () => clearTimeout(timer);
   }, []);
 
-  if (!champion || dismissed) return null;
+  if (!champion) return null;
 
   if (!showResults) {
     return (
@@ -136,13 +141,26 @@ function GameSummary({ players = [], winners = [], gameLog = [] }) {
           </header>
           <GameLogPanel gameLog={gameLog} compact />
         </section>
-        <button
-          type="button"
-          className="victory-close-summary"
-          onClick={() => setDismissed(true)}
-        >
-          Close Summary
-        </button>
+        <section className="victory-next-step" aria-label="Choose what to do next">
+          <h2>Play Again?</h2>
+          <p>Prepare another treasury or return to the Home screen.</p>
+          <div className="victory-next-step-actions">
+            <button
+              type="button"
+              className="victory-close-summary victory-play-again"
+              onClick={onPlayAgain}
+            >
+              Yes, Play Again
+            </button>
+            <button
+              type="button"
+              className="victory-close-summary victory-return-home"
+              onClick={onReturnHome}
+            >
+              No, Return Home
+            </button>
+          </div>
+        </section>
       </main>
 
       {collectionPlayer && (

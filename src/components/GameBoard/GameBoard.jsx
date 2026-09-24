@@ -151,6 +151,11 @@ function GameBoard({
               isActive={index === gameState.currentPlayer}
               selectedTokens={index === gameState.currentPlayer ? selected : []}
               onReturnGem={humanTurn ? actions.returnSelectedGem : undefined}
+              onReturnInventoryGem={
+                humanTurn && index === gameState.currentPlayer
+                  ? actions.returnInventoryGem
+                  : undefined
+              }
               onViewCollection={() => setCollectionPlayer(player)}
             />
           ))}

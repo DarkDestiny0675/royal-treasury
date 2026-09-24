@@ -118,6 +118,7 @@ export function useOnlineRoyalTreasuryGame(matchId, user) {
   const actions = useMemo(() => ({
     collectGem: (color) => act({ type: "collectGem", color }),
     returnSelectedGem: (color) => act({ type: "returnGem", color }),
+    returnInventoryGem: (color) => act({ type: "returnGem", color }),
     confirmGemSelection: () => act({ type: "confirmGems" }),
     purchaseMarketCard: (card, tier) => act({
       type: "purchaseMarket",

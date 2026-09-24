@@ -17,7 +17,6 @@ function PlayerDashboard({
   isActive,
   selectedTokens = [],
   onReturnGem,
-  onReturnInventoryGem,
   onViewCollection,
 }) {
   const [showPersonalities] = useStoredSetting("showPersonalities", true);
@@ -41,12 +40,6 @@ function PlayerDashboard({
     (total, value) => total + (Number(value) || 0),
     0,
   );
-  const bonusCounts = (player.purchasedCards || []).reduce((counts, card) => {
-    const color = card?.bonusColor || card?.bonus || card?.color;
-    if (color && color !== "gold") counts[color] = (counts[color] || 0) + 1;
-    return counts;
-  }, {});
-
   const avatarClass = `player-avatar ${isHumanPlayer ? "human-player" : "ai-player"}`;
 
   return (
@@ -80,37 +73,19 @@ function PlayerDashboard({
         <Stat label="Nobles" value={(player.nobles || []).length} />
       </div>
 
-      <div className="player-bonus-row" aria-label={`${player.name} bonus gems`}>
-        {TOKEN_COLORS.filter(({ key }) => key !== "gold").map(({ key }) => (
-          <div key={`bonus-${key}`} className={`player-bonus-gem player-token-${key}`}>
-            <span />
-            <strong>{bonusCounts[key] || 0}</strong>
-          </div>
-        ))}
-      </div>
-
       <div
         className="player-token-inventory"
         aria-label={`${player.name} token inventory`}
       >
-        {TOKEN_COLORS.map(({ key, label }) => {
-          const count = player.tokens?.[key] || 0;
-          const canReturn = isActive && count > 0 && Boolean(onReturnInventoryGem);
-          return (
-            <button
-              key={key}
-              type="button"
-              className={`player-token-count player-token-${key}${canReturn ? " inventory-token-action" : ""}`}
-              onClick={canReturn ? () => onReturnInventoryGem(key) : undefined}
-              disabled={!canReturn}
-              title={canReturn ? `Return one ${label} token` : `${label}: ${count}`}
-              aria-label={canReturn ? `Return one ${label} token from inventory` : `${label}: ${count}`}
-            >
-              <span>{label}</span>
-              <strong>{count}</strong>
-            </button>
-          );
-        })}
+        {TOKEN_COLORS.map(({ key, label }) => (
+          <div
+            key={key}
+            className={`player-token-count player-token-${key}`}
+          >
+            <span>{label}</span>
+            <strong>{player.tokens?.[key] || 0}</strong>
+          </div>
+        ))}
       </div>
 
       {isActive && selectedTokens.length > 0 && (

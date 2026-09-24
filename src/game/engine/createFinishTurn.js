@@ -59,6 +59,7 @@ export function createFinishTurn(isAiPlayer) {
       }
     }
 
+    updated.message = "";
     updated.selectedTokens = [];
     updated.actionMode = "threeDifferent";
     updated.cardAction = "purchase";

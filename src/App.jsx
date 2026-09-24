@@ -275,6 +275,14 @@ function App() {
             players={gameState.players}
             winners={gameState.winners}
             gameLog={gameState.gameLog || []}
+            onPlayAgain={() => {
+              actions.pauseGame();
+              setActiveScreen("setup");
+            }}
+            onReturnHome={() => {
+              actions.pauseGame();
+              setActiveScreen("menu");
+            }}
           />
         )}
         <GameBoard gameState={gameState} actions={actions} />
